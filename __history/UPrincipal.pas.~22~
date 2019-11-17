@@ -50,7 +50,7 @@ I : Integer;
 begin
   CDS.Open;
   cds.EmptyDataSet;
-  for I := 1 to StrToInt(Edit4.Text) do
+  for I := 0 to StrToInt(Edit4.Text) do
   begin
     CDS.Append;
     CDS.FieldByName('nome').AsString:=Edit1.Text+IntToStr(I);
@@ -98,7 +98,6 @@ qry : TZQuery;
 begin
 
   qry:=TZQuery.Create(nil);
-  qry.Connection:=ZConnection1;
   qry.SQL.Add('select * from pessoa');
   qry.Open;
   cds.First;
@@ -106,11 +105,9 @@ begin
 
   while not qry.Eof do
   begin
-    cds.Append;
     CDS.FieldByName('nome').AsString:= qry.FieldByName('nome').AsString;
     CDS.FieldByName('sobrenome_meio').AsString:= qry.FieldByName('sobrenome_meio').AsString;
     CDS.FieldByName('sobrenome_fim').AsString:= qry.FieldByName('sobrenome_fim').AsString;
-    cds.Post;
     qry.Next;
   end;
 

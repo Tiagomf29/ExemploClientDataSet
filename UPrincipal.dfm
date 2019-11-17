@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Form1'
   ClientHeight = 428
-  ClientWidth = 483
+  ClientWidth = 515
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,9 +31,9 @@ object Form1: TForm1
   object Label2: TLabel
     Left = 8
     Top = 59
-    Width = 81
+    Width = 115
     Height = 13
-    Caption = 'Sobre do meio'
+    Caption = 'Primeiro sobrenome'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -44,9 +44,9 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 8
     Top = 102
-    Width = 100
+    Width = 104
     Height = 13
-    Caption = 'Sobrenomedo fim'
+    Caption = #218'ltimo sobrenome'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -85,7 +85,7 @@ object Form1: TForm1
   object DBGrid1: TDBGrid
     Left = 8
     Top = 147
-    Width = 467
+    Width = 505
     Height = 246
     DataSource = DS
     TabOrder = 3
@@ -96,20 +96,20 @@ object Form1: TForm1
     TitleFont.Style = []
   end
   object Button1: TButton
-    Left = 344
-    Top = 30
-    Width = 97
+    Left = 319
+    Top = 42
+    Width = 194
     Height = 25
     Caption = 'Popular Dataset'
     TabOrder = 4
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 336
-    Top = 61
-    Width = 123
+    Left = 319
+    Top = 73
+    Width = 194
     Height = 25
-    Caption = 'Gravar Banco de dados'
+    Caption = 'Gravar dados no banco de dados'
     TabOrder = 5
     OnClick = Button2Click
   end
@@ -120,6 +120,15 @@ object Form1: TForm1
     Height = 21
     TabOrder = 6
     Text = '1000'
+  end
+  object Button3: TButton
+    Left = 319
+    Top = 104
+    Width = 194
+    Height = 25
+    Caption = 'Carregar dados do banco de dados'
+    TabOrder = 7
+    OnClick = Button3Click
   end
   object DS: TDataSource
     DataSet = CDS
