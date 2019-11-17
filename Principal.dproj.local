@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/10/28 21:19:08.000.653,=C:\Users\Tiago\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/10/28 21:36:47.000.821,=C:\Users\Tiago\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/11/05 22:07:53.000.569,=C:\Users\Tiago\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/11/17 11:19:33.633,=C:\Users\Tiago\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/11/17 11:20:04.480,C:\Tiago\Desenvolvimento\Projetos Git\ClientDataset\UPrincipal.pas=C:\Users\Tiago\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/11/17 11:20:04.480,C:\Tiago\Desenvolvimento\Projetos Git\ClientDataset\UPrincipal.dfm=C:\Users\Tiago\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019/11/17 11:20:16.635,C:\Tiago\Desenvolvimento\Projetos Git\ClientDataset\Principal.dproj=C:\Users\Tiago\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
