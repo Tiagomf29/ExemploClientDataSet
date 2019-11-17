@@ -99,6 +99,7 @@ begin
 
   qry:=TZQuery.Create(nil);
   qry.Connection:=ZConnection1;
+  try
   qry.SQL.Add('select * from pessoa');
   qry.Open;
   cds.First;
@@ -112,6 +113,9 @@ begin
     CDS.FieldByName('sobrenome_fim').AsString:= qry.FieldByName('sobrenome_fim').AsString;
     cds.Post;
     qry.Next;
+  end;
+  finally
+    FreeAndNil(qry);
   end;
 
 end;

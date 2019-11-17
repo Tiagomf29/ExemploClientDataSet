@@ -26,9 +26,11 @@ type
     Edit4: TEdit;
     Label4: TLabel;
     ZConnection1: TZConnection;
+    Button3: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,11 +48,9 @@ procedure TForm1.Button1Click(Sender: TObject);
 var
 I : Integer;
 begin
-
-
   CDS.Open;
   cds.EmptyDataSet;
-  for I := 0 to StrToInt(Edit4.Text) do
+  for I := 1 to StrToInt(Edit4.Text) do
   begin
     CDS.Append;
     CDS.FieldByName('nome').AsString:=Edit1.Text+IntToStr(I);
@@ -75,15 +75,45 @@ begin
     qry.SQL.Clear;
     qry.SQL.Add('insert into pessoa (nome,sobrenome_meio,sobrenome_fim)');
     qry.SQL.Add('values');
-    qry.SQL.Add('('+QuotedStr(cds.FieldByName('nome').AsString+','));
-    qry.SQL.Add('('+QuotedStr(cds.FieldByName('sobrenome_meio').AsString+','));
-    qry.SQL.Add('('+QuotedStr(cds.FieldByName('sobrenome_fim').AsString+')'));
+    qry.SQL.Add('(');
+    qry.SQL.Add(QuotedStr(cds.FieldByName('nome').AsString)+',');
+    qry.SQL.Add(QuotedStr(cds.FieldByName('sobrenome_meio').AsString)+',');
+    qry.SQL.Add(QuotedStr(cds.FieldByName('sobrenome_fim').AsString));
+    qry.SQL.Add(')');
     qry.ExecSQL;
     CDS.Next;
   End;
+
+      MessageDlg('Registros gravados no banco de dados com sucesso!',mtInformation,[mbOK],0);
+      CDS.EmptyDataSet;
+
   finally
     FreeAndNil(qry);
   end;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+qry : TZQuery;
+begin
+
+  qry:=TZQuery.Create(nil);
+  qry.Connection:=ZConnection1;
+  qry.SQL.Add('select * from pessoa');
+  qry.Open;
+  cds.First;
+  qry.First;
+
+  while not qry.Eof do
+  begin
+    cds.Append;
+    CDS.FieldByName('nome').AsString:= qry.FieldByName('nome').AsString;
+    CDS.FieldByName('sobrenome_meio').AsString:= qry.FieldByName('sobrenome_meio').AsString;
+    CDS.FieldByName('sobrenome_fim').AsString:= qry.FieldByName('sobrenome_fim').AsString;
+    cds.Post;
+    qry.Next;
+  end;
+
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
